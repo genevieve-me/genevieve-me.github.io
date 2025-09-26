@@ -260,4 +260,7 @@ header menu {
 footer {
     margin-left: 10vw;
     margin-top: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
