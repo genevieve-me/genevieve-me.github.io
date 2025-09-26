@@ -1,0 +1,16 @@
+name: Build and deploy GH Pages
+run-name: ${{ github.actor }} generating github page
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: checkout
+        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@c34a7626cd84c9c90499afeb310070ea838a8d1a
+        env:
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
