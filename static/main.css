@@ -51,11 +51,27 @@ a[href^="https://"]
     position: sticky;
     margin-left: auto;
     margin-right: auto;
+    background-color: var(--background-color);
+    z-index: 10;
 }
 .header-div {
     display: flex;
-    justify-content: space-evenly;
-    /* max-width: 56rem; */
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: min(100%, 56rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+    box-sizing: border-box;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    gap: 0.75rem;
 }
 header ol,
 header ul,
@@ -121,6 +137,7 @@ header menu {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: auto;
 }
 
 .nav-toggle-label span {
@@ -146,6 +163,8 @@ header menu {
 
 .nav-container {
     width: 100%;
+    position: relative;
+    flex: 1 1 100%;
 }
 
 .nav-wrapper {
@@ -169,8 +188,16 @@ header menu {
     padding-left: 2.5rem;
 }
 @media (min-width: 1024px) {
+    .header-div {
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+    }
+    .header-brand {
+        flex: 0 0 auto;
+    }
     .nav-container {
         width: auto;
+        flex: 0 0 auto;
     }
     .nav-wrapper {
         display: flex;
