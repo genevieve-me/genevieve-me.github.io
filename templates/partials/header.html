@@ -1,8 +1,8 @@
 <header id="header_bar">
-    <div class="mx-auto max-w-4xl lg:flex lg:justify-between">
+    <div class="header-div">
         <!-- checkbox stores the state of the dropdown navbar for mobile -->
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-        <div class="flex justify-between items-center w-full lg:w-auto">
+        <div>
             <a title="Go to home page" href="/" class="text-2xl font-semibold"
                 >home</a
             >
@@ -14,17 +14,17 @@
             </label>
         </div>
         <nav class="nav-container">
-            <menu class="nav-wrapper lg:self-center">
+            <menu class="nav-wrapper">
                 <li>
                     <a
-                        class="primary-link text-lg py-2 lg:px-3"
+                        class="primary-link"
                         href="{{ get_url(path='@/blog/_index.md') }}"
                         >blog</a
                     >
                 </li>
                 <li>
                     <a
-                        class="primary-link text-lg py-2 lg:px-3"
+                        class="primary-link"
                         href="{{ get_url(path='@/about.md') }}"
                         >about</a
                     >

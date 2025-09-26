@@ -1,22 +1,11 @@
-{% extends "base.html" %}
-<!--
-https://www.getzola.org/documentation/getting-started/
-https://salif.github.io/linkita/en/
-https://github.com/welpo/tabi-start
-https://news.ycombinator.com/item?id=19753282
-https://news.ycombinator.com/item?id=42799136
-https://www.maybevain.com/writing/using-tailwind-css-with-zola-static-site-generator/
-grep for chasnah
-https://chasnah7.github.io/index.html
-https://github.com/getzola/zola/blob/master/EXAMPLES.md
--->
+{% extends "base.html" %} {% block content %}
+<h1 class="title">Witty title goes here...</h1>
 
-
-{% block content %}
-<h1 class="title">
-  <!-- This is Genevieve Mendoza's home page, made with Zola. -->
-  Witty title goes here...
-</h1>
+<p>
+    This is Genevieve Mendoza's home page, made with Zola. What happens if this
+    paragraph becomes too long and needs to wrap around to the next line?
+</p>
 
 <p><a href="{{ get_url(path='@/resume.md') }}">Hire me!</a></p>
-{% endblock content %}
+
+{{ section.content | safe }} {% endblock content %}
