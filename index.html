@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Genevieve Mendoza</title>
+        <link rel="stylesheet" href="/main.css" />
+    </head>
+
+    <body>
+        <!-- is this bad? "Practically speaking this means you have to choose between using includes or extends to organise your site, without mixing them."  -->
+        <header id="header_bar">
+    <div class="header-div">
+        <!-- checkbox stores the state of the dropdown navbar for mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <div class="header-brand">
+            <a title="Go to home page" href="/" class="text-2xl font-semibold"
+                >home</a
+            >
+            <!-- hamburger button used for the navbar checkbox hack -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <nav class="nav-container">
+            <menu class="nav-wrapper">
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/blog/"
+                        >blog</a
+                    >
+                </li>
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/about/"
+                        >about</a
+                    >
+                </li>
+            </menu>
+        </nav>
+    </div>
+</header>
+
+        <section class="section">
+            <div class="blog-container">
+<h1 class="title">Witty title goes here...</h1>
+
+<p>
+    This is Genevieve Mendoza's home page, made with Zola. What happens if this
+    paragraph becomes too long and needs to wrap around to the next line?
+</p>
+
+<p><a href="https://www.genevievemendoza.com/resume/">Hire me!</a></p>
+
+<p>Site home page.</p>
+<p>this is used in templates/index.html via a <code>section.content</code> directive.</p>
+ </div>
+        </section>
+        <!-- limit on only the homepage. is there a better way? -->
+          <footer><p>This is a footer.</p></footer>
+<!--
+include some retro badges
+https://maia.crimew.gay/badges/88x31.gif
+http://www.textfiles.com/underconstruction/HeHeartlandCottage5668imagesWorkConstructAnim.gif
+http://www.textfiles.com/underconstruction/Atlantis8384CONSTRUCTION.gif
+https://cyber.dabamos.de/88x31/chrmevil.gif
+https://cyber.dabamos.de/88x31/construction.gif
+-->
+  
+    </body>
+</html>
