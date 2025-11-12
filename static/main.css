@@ -88,15 +88,15 @@ header menu {
     justify-content: center;
     align-items: left;
     flex-direction: column;
-    max-width: 40vw;
+    max-width: 70ch;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 2rem;
+    padding: 2rem 1.5rem;
 }
 @media (max-width: 768px) {
     .blog-container {
-        /* FIXME: shouldn't be only 40% on mobile, but this does not work */
-        max-width: 100vw;
+        max-width: 100%;
+        padding: 2rem 1.25rem;
     }
 }
 
