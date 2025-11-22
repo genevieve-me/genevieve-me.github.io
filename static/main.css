@@ -2,6 +2,16 @@
 @import url("_syntax-theme-light.css") (prefers-color-scheme: light);
 @import url("syntax.css");
 
+@font-face {
+    font-family: "Source Sans 3 VF";
+    src:
+        url("/fonts/SourceSans3-VariableFont_wght.woff2") format("woff2-variations"),
+        url("/fonts/SourceSans3-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --background-color: #f0f0f0;
     --text-color: #333;
@@ -24,7 +34,8 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: Arial, sans-serif;
+    font-family: "Source Sans 3 VF", "Source Sans 3", Arial, sans-serif;
+    font-optical-sizing: auto;
     font-size: clamp(1rem, 2vmin, 1.5rem);
     /* added back to make the footer able to stick to the bottom */
     min-height: 95vh;

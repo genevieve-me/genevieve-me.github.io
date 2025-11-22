@@ -11,6 +11,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+      - name: Install Typst
+        uses: typst-community/setup-typst@v3
+        with:
+          version: v0.14.0
+      - name: Build resume assets
+        run: ./resume/build.sh
       - name: build_and_deploy
         uses: shalzz/zola-deploy-action@c34a7626cd84c9c90499afeb310070ea838a8d1a
         env:
