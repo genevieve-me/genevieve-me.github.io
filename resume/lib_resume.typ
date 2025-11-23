@@ -180,7 +180,7 @@
   // Recommended to have 0.5in margin on all sides
   if sys.inputs.at("target", default: "pdf") != "html" {
     set page(
-      margin: (0.8in),
+      margin: (0.7in),
       paper: paper,
     )
     content

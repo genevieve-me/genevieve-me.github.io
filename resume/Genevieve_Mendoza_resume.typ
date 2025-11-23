@@ -7,7 +7,7 @@
   location: "New York, NY, USA",
   email: "me@genevievemendoza.com",
   github: "github.com/genevieve-me",
-  linkedin: "linkedin.com/in/genevieve-me",
+  linkedin: "linkedin.com/in/genevievemendoza",
   phone: "+1 (201) 887-2611",
   personal-site: "genevievemendoza.com",
   accent-color: "#004f90",
@@ -24,7 +24,7 @@
   location: "St. Louis, MO",
   dates: dates-helper(start-date: "Aug 2019", end-date: "May 2023"),
   degree: "B.A., Majors in Statistics & Economics",
-  gpa: "3.91 / 4.0",
+  gpa: "3.93 / 4.0",
 )
 - High Honors and Dean's List; leadership roles with ArchHacks/HackWashU, Association for Women in Math, and Fossil Free
 - Teaching assistant for Data Structures & Algorithms and Analysis courses
@@ -37,13 +37,14 @@
   company: "The Syllabus",
   dates: dates-helper(start-date: "2023", end-date: "Present"),
 )
-- Optimized core API response speeds by 90x through SQL query tuning and trimmed over \$1,800 in yearly cloud spend by eliminating infrastructure inefficiencies
-- Trained BERT-based language models for document classification and implemented vector-search RAG for a new recommendation engine and internal data pipeline
+- Improved core API response speeds by 90x through SQL query tuning and trimmed over 30\% of yearly cloud spend by eliminating cloud inefficiencies
+- Shipped a full-stack Rust and React custom client application that distills hundreds of thousands of weekly signals into curated insights that were previously infeasible to surface
+- Trained BERT-based language models for document classification and implemented full-stack RAG pipeline for new recommendation engine
 - Engineered CI pipelines for all projects from scratch, enabling automated continuous deployment and reducing developer toil to nearly zero
 - Architected cloud strategy and unified infrastructure on AWS, migrating all services to containerized deployments managed entirely with IaC
-- Spearheaded adoption of full-stack observability with OpenTelemetry, uncovering hidden bugs and delivering high-level operational insights
+- Brought adoption of full-stack observability with OpenTelemetry from 0% to 95%, uncovering bugs and cutting median downtime by over half
 - Proactively eliminated security risks by identifying and mitigating leaked credentials with secret scanning and implementing role-based access controls
-- Improved developer experience by documenting legacy cronjobs and consolidating functionality into the primary data processing service
+- Improved developer experience by documenting legacy cronjobs and consolidating 40% of unmaintained lines of code into the primary data processing service
 - Collaborated on database schema redesign and migration to simplify the codebase and improve user load times
 
 #work(
@@ -66,7 +67,9 @@
 == Skills
 
 - #strong[Languages:] English (fluent), French (proficient), Spanish (conversant)
-- #strong[Statistics & ML:] SVMs and MLPs, transformers (BERT), embeddings, neural networks, naive Bayes
-- #strong[Programming Languages:] Python, SQL (Postgres/sqlite), R, Nix, HTML/CSS, basic Rust
-- #strong[Technologies:] Python data stack (pytorch, polars, pydantic), AWS ECS/RDS/Lambda, Terraform/OpenTofu, Grafana, GitLab CI/CD
-- #strong[Linux & Containers:] GNU tools, systemd, user and network namespaces, cgroups, nftables, iproute2
+- #strong[Statistics & ML:] SVMs and MLPs, transformers (BERT), embeddings, neural networks, naive Bayes, NLP
+- #strong[Programming Languages:] Rust, Python, SQL (Postgres/sqlite), R, Nix, HTML/CSS, basic React, bash
+- #strong[Technologies:] Python data stack (PyTorch, Polars, Pydantic, Sentence Transformers), Rust ecosystem (sqlx, tokio), Grafana, GitLab CI/CD
+- #strong[Linux & Containers:] GNU tools, systemd, Docker/Podman, network namespaces, cgroups, nftables, iproute2, gdb, perf 
+- #strong[AWS Stack:] ECS clusters; serverless architectures with Lambda, EventBridge, and SQS; IAM and AWS Organizations, Terraform/OpenTofu, 
+- #strong[Workflows:] Collaborated in an Agile workflow tracking epics and story points with GitLab and Trello (Kanban)
