@@ -2,7 +2,7 @@
 title = "Resume"
 +++
 
-My latest resume:
+Here's my current résumé, last updated November 2025.
 
 {{ resume_embed() }}
 

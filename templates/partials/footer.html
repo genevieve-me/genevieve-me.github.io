@@ -1,9 +1,52 @@
-<footer><p>This is a footer.</p></footer>
-<!--
-include some retro badges
-https://maia.crimew.gay/badges/88x31.gif
-http://www.textfiles.com/underconstruction/HeHeartlandCottage5668imagesWorkConstructAnim.gif
-http://www.textfiles.com/underconstruction/Atlantis8384CONSTRUCTION.gif
-https://cyber.dabamos.de/88x31/chrmevil.gif
-https://cyber.dabamos.de/88x31/construction.gif
--->
+<footer>
+    <div class="footer-inner">
+        <p>
+            © {{ now() | date(format="%Y") }} Genevieve Mendoza ·
+              Handmade with Zola and a soft spot for the indie web.
+        </p>
+        <div class="footer-badges" aria-hidden="true">
+            <a href="https://cyber.dabamos.de/88x31/">
+            <img
+                src="8831/88x31.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            </a>
+            <a href="https://jointhefediverse.net/join">
+            <img
+                src="8831/neo-fedi.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            </a>
+            <img
+                src="8831/nocookie.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            <!-- <img src="/8831/RetroWorkConstructAnim.gif" alt="" loading="lazy" /> -->
+            <!-- <img src="/8831/AtlantisCONSTRUCTION.gif" alt="" loading="lazy" /> -->
+            <a href="https://eylenburg.github.io/browser_engines.htm">
+            <img src="/8831/chrmevil.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            </a>
+            <img
+                src="8831/construction.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+        </div>
+    </div>
+</footer>

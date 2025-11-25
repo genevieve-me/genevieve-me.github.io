@@ -1,6 +1,7 @@
 +++
 title = "My first post"
 date = 2019-11-27
+draft = true
 +++
 
 This is my first blog post.
@@ -68,8 +69,4 @@ There we go.
 
 Is this the most interesting thing I hope to write about? Certainly not. But it was something recent and easy enough to write about that I could use it to motivate myself to get this site and blog officially up and running.
 
-Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet.
-Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet.
-Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet.
-Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet.
 Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet. Lorem ipsum dolor emet.

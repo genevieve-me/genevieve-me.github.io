@@ -1,11 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <h1 class="title">Witty title goes here...</h1>
 
-<p>
-    This is Genevieve Mendoza's home page, made with Zola. What happens if this
-    paragraph becomes too long and needs to wrap around to the next line?
-</p>
+{{ section.content | safe }}
 
 <p><a href="{{ get_url(path='@/resume.md') }}">Hire me!</a></p>
 
-{{ section.content | safe }} {% endblock content %}
+{% endblock content %}

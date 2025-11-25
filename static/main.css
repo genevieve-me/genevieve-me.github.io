@@ -274,11 +274,27 @@ header menu {
 }
 
 footer {
-    margin-left: 10vw;
     margin-top: auto;
-    display: flex;
     margin-left: auto;
     margin-right: auto;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem 1.5rem 2rem;
+    max-width: 56rem;
+}
+
+.footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-badges img {
+    image-rendering: pixelated;
 }
 
 .about-header {

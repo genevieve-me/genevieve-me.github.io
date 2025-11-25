@@ -39,6 +39,7 @@
 )
 - Improved core API response speeds by 90x through SQL query tuning and trimmed over 30\% of yearly cloud spend by eliminating cloud inefficiencies
 - Shipped a full-stack Rust and React custom client application that distills hundreds of thousands of weekly signals into curated insights that were previously infeasible to surface
+- TODO: put "web service" in here somewhere because ATS is so stupid that I can see it's claiming I'm unqualified for roles because those exact words aren't mentioned
 - Trained BERT-based language models for document classification and implemented full-stack RAG pipeline for new recommendation engine
 - Engineered CI pipelines for all projects from scratch, enabling automated continuous deployment and reducing developer toil to nearly zero
 - Architected cloud strategy and unified infrastructure on AWS, migrating all services to containerized deployments managed entirely with IaC
