@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Genevieve Mendoza</title>
+        <link rel="stylesheet" href="/main.css" />
+    </head>
+
+    <body>
+        <!-- is this bad? "Practically speaking this means you have to choose between using includes or extends to organise your site, without mixing them."  -->
+        <header id="header_bar">
+    <div class="header-div">
+        <!-- checkbox stores the state of the dropdown navbar for mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <div class="header-brand">
+            <a title="Go to home page" href="/" class="text-2xl font-semibold"
+                >home</a
+            >
+            <!-- hamburger button used for the navbar checkbox hack -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <nav class="nav-container">
+            <menu class="nav-wrapper">
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/blog/"
+                        >blog</a
+                    >
+                </li>
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/about/"
+                        >about</a
+                    >
+                </li>
+            </menu>
+        </nav>
+    </div>
+</header>
+
+        <section class="section">
+            <div class="blog-container"> <div class="about-header">
+    <img
+        src="/Under_construction_graphic.gif"
+        alt=""
+        class="about-header__image"
+        loading="lazy"
+    />
+    <div class="about-header__content">
+        <h1 class="about-header__title">Genevieve Mendoza</h1>
+        <p class="about-header__subtitle">Data Engineer</p>
+        <p class="about-header__contact">
+            <a href="mailto:me@genevievemendoza.com">me@genevievemendoza.com</a>
+        </p>
+        <p class="about-header__links">
+            <a href="https://github.com/genevieve-me" class="about-header__link about-header__link--github">
+                <span class="about-header__icon about-header__icon--github" aria-hidden="true"></span>
+                GitHub
+            </a>
+            <span class="about-header__links-separator" aria-hidden="true">/</span>
+            <a href="https://www.linkedin.com/in/genevievemendoza" class="about-header__link about-header__link--linkedin">
+                <span class="about-header__icon about-header__icon--linkedin" aria-hidden="true"></span>
+                LinkedIn
+            </a>
+        </p>
+    </div>
+</div>
+<p>I'm a data engineer working remotely for <a href="https://www.thesyllabus.com/">The Syllabus</a></p>
+<p>I studied statistics, data science and economics at Washington University.
+I'm passionate about working on data analysis with interdisciplinary teams and identifying practical insights.
+My areas of focus are computational statistics (especially Bayesian methods and non-parametric modelling), and I also have a background in financial analysis and biostatistics.</p>
+<p>I have the most experience with the R ecosystem and using the GNU toolkit to prepare data, but I have also worked with Tensorflow and am always willing to learn new tools.
+I've learned techniques for working with time series data for econometrics and high-throughput data for genomics.
+When it comes to software engineering, I also have a background in programming in Python and Rust, as well as
+software deployment with strong knowledge of fundamentals of Linux, containers, Terraform, and AWS.</p>
+<p>When I have time, I want to keep learning Scheme and playing with Guix System.
+I'm also interested in how data, policy, and climate resilience intersect in cities.</p>
+<p><a href="https://www.genevievemendoza.com/resume/">My resume is available here.</a></p>
+ </div>
+        </section>
+        <!-- limit on only the homepage. is there a better way? -->
+        
+    </body>
+</html>
