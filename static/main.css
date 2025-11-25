@@ -15,20 +15,24 @@
 :root {
     --background-color: #f0f0f0;
     --text-color: #333;
-    --header-link-color: #0070f3;
+    --accent-color: purple;
     --link-color: #3176c4;
     --link-color-visited: #6a3699; /* or deepskyblue ? */
-    --accent-color: purple;
+    --link-color-header: #0070f3;
+    /* slightly brighter for external links */
+    --link-color-external: #3a8fea;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #282c34;
         --text-color: #fff;
-        --header-link-color: #f8f8f2;
+        --accent-color: pink;
         --link-color: #67c6ee;
         --link-color-visited: #f45b68;
-        --accent-color: pink;
+        --link-color-header: #f8f8f2;
+        /* lighter cyan variant for external links */
+        --link-color-external: #8ee6ff;
     }
 }
 body {
@@ -51,7 +55,7 @@ a:visited {
 /* cute: https://lobste.rs/s/kfg4uc/wasted_potential_css_attribute */
 a[href^="https://"]
 {
-    color: var(--external-link-color);
+    color: var(--link-color-external);
 }
 
 #header_bar {
@@ -92,10 +96,10 @@ header menu {
     padding: 0;
 }
 #header_bar a {
-    color: var(--header-link-color);
+    color: var(--link-color-header);
 }
 .blog-container {
-    display: flex; /* we're using flex because the individual elements should have some control over their layout */
+    display-header: flex; /* we're using flex because the individual elements should have some control over their layout */
     justify-content: center;
     align-items: left;
     flex-direction: column;
@@ -275,4 +279,93 @@ footer {
     display: flex;
     margin-left: auto;
     margin-right: auto;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-header__image {
+    flex: 0 0 10rem;
+    width: 14rem;
+    height: 10rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.about-header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.about-header__title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.about-header__subtitle {
+    margin: 0;
+    font-weight: 500;
+}
+
+.about-header__contact {
+    margin: 0.5rem 0 0;
+}
+
+.about-header__links {
+    margin: 0.25rem 0 0;
+}
+
+.about-header__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.about-header__links-separator {
+    margin: 0 0.4rem;
+}
+
+.about-header__icon {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.about-header__icon--github {
+    background-image: url("/icons/github-mark.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+    .about-header__icon--github {
+        background-image: url("/icons/github-mark-white.svg");
+    }
+}
+
+.about-header__icon--linkedin {
+    background-image: url("/icons/linkedin-black.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+    .about-header__icon--linkedin {
+        background-image: url("/icons/linkedin-white.svg");
+    }
+}
+
+@media (max-width: 640px) {
+    .about-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

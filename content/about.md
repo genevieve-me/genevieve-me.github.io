@@ -2,6 +2,33 @@
 title="About me"
 +++
 
+<div class="about-header">
+    <img
+        src="/Under_construction_graphic.gif"
+        alt=""
+        class="about-header__image"
+        loading="lazy"
+    />
+    <div class="about-header__content">
+        <h1 class="about-header__title">Genevieve Mendoza</h1>
+        <p class="about-header__subtitle">Data Engineer</p>
+        <p class="about-header__contact">
+            <a href="mailto:me@genevievemendoza.com">me@genevievemendoza.com</a>
+        </p>
+        <p class="about-header__links">
+            <a href="https://github.com/genevieve-me" class="about-header__link about-header__link--github">
+                <span class="about-header__icon about-header__icon--github" aria-hidden="true"></span>
+                GitHub
+            </a>
+            <span class="about-header__links-separator" aria-hidden="true">/</span>
+            <a href="https://www.linkedin.com/in/genevievemendoza" class="about-header__link about-header__link--linkedin">
+                <span class="about-header__icon about-header__icon--linkedin" aria-hidden="true"></span>
+                LinkedIn
+            </a>
+        </p>
+    </div>
+</div>
+
 - 👋 Hi, I’m Genevieve Mendoza.
 - 👀 I’m experienced with statistics and data science and interested in public policy work around climate change, especially urban resilience.
 - 🌱 I’m currently learning Scheme!
