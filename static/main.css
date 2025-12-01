@@ -363,19 +363,23 @@ footer {
     background-image: url("/icons/github-mark.svg");
 }
 
-@media (prefers-color-scheme: dark) {
-    .about-header__icon--github {
-        background-image: url("/icons/github-mark-white.svg");
-    }
-}
-
 .about-header__icon--linkedin {
     background-image: url("/icons/linkedin-black.svg");
 }
 
+.about-header__icon--mastodon {
+    background-image: url("/icons/fediverse-black.svg");
+}
+
 @media (prefers-color-scheme: dark) {
+    .about-header__icon--github {
+        background-image: url("/icons/github-mark-white.svg");
+    }
     .about-header__icon--linkedin {
         background-image: url("/icons/linkedin-white.svg");
+    }
+    .about-header__icon--mastodon {
+        background-image: url("/icons/fediverse-white.svg");
     }
 }
 

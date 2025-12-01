@@ -25,6 +25,11 @@ title="About me"
                 <span class="about-header__icon about-header__icon--linkedin" aria-hidden="true"></span>
                 LinkedIn
             </a>
+            <span class="about-header__links-separator" aria-hidden="true">/</span>
+            <a rel="me" href="https://hachyderm.io/@genevieve" class="about-header__link about-header__link--mastodon">
+                <span class="about-header__icon about-header__icon--mastodon" aria-hidden="true"></span>
+                Mastodon
+            </a>
         </p>
     </div>
 </div>
