@@ -1,5 +1,5 @@
 +++
-title = "Adding Determinism to Python Lambda Artifacts"
+title = "Achieving Determinism for Python Lambda Artifacts"
 date = 2025-12-06
 +++
 
@@ -73,6 +73,6 @@ find . -type f -print | sort | TZ=UTC zip -oX -@ ${LAMBDA_NAME}-payload.zip
 
 [^caution]: The only reason given for AWS's suggestion to exclude bytecode is avoiding issues with a "build machine with a different architecture or operating system." As you'll see, I ultimately did disable bytecode pre-compilation, but if you are paying attention to such things (as you should), I think you're probably fine to ignore this generic bit of advice.
 
-[^hindsight]: It may have been wiser of me to scope environment variables like this `uv`-specific flag to only the jobs that explicitly wanted it, even if that meant a tiny bit more repetition. It can be hard to resist the allure of simplicity, though!
+[^hindsight]: It may have been wiser for past me to scope environment variables like this `uv`-specific flag to only the jobs that explicitly wanted it, even if that meant a tiny bit more repetition. It can be hard to resist the allure of simplicity, though!
 
 [^uvsource]: See uv's [compile.rs](https://github.com/astral-sh/uv/blob/main/crates/uv-installer/src/compile.rs), which spawns multiple worker processes each running a Python interpreter that compiles files via [pip_compileall.py](https://github.com/astral-sh/uv/blob/main/crates/uv-installer/src/pip_compileall.py).
