@@ -389,3 +389,26 @@ footer {
         align-items: flex-start;
     }
 }
+
+/* Footnotes */
+.footnote-definition:first-of-type {
+    border-top: 1px solid var(--text-color);
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.footnote-definition {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
+.footnote-definition-label {
+    font-size: inherit;
+    vertical-align: baseline;
+}
+
+.footnote-definition p {
+    margin: 0;
+}
