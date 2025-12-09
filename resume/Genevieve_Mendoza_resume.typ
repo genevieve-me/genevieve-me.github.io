@@ -32,17 +32,17 @@
 == Work Experience
 
 #work(
-  title: "Data Engineer",
+  title: "Software Engineer",
   location: "Remote (EU)",
   company: "The Syllabus",
   dates: dates-helper(start-date: "2023", end-date: "Present"),
 )
+- Trained BERT-based language models for document understanding and implemented full-stack RAG pipeline for new user recommendation engine
+- Shipped a high-throughput data processing service in Rust that processes 300K+ weekly signals, optimizing memory usage and concurrency handling to reduce latency
 - Improved core API response speeds by 90x through SQL query tuning and trimmed over 30\% of yearly cloud spend by eliminating cloud inefficiencies
-- Shipped a full-stack Rust and React custom web service that distills hundreds of thousands of weekly signals into curated insights
-- Trained BERT-based language models for document classification and implemented full-stack RAG pipeline for new recommendation engine
 - Engineered CI pipelines for all projects from scratch, enabling automated continuous deployment and reducing developer toil to nearly zero
-- Architected cloud strategy and unified infrastructure on AWS, migrating all services to containerized deployments managed entirely with IaC
-- Brought adoption of full-stack observability with OpenTelemetry from 0% to 95%, uncovering bugs and cutting median downtime by over half
+- Architected new event-driven data streaming system on AWS and migrated all services to containerized deployments managed entirely with IaC
+- Brought adoption of full-stack observability with OpenTelemetry from 0% to 95%, uncovering bugs and cutting median time to restore service by over half
 - Proactively eliminated security risks by identifying and mitigating leaked credentials with secret scanning and implementing role-based access controls
 - Improved developer experience by documenting legacy cronjobs and consolidating 40% of unmaintained lines of code into the primary data processing service
 - Collaborated on database schema redesign and migration to simplify the codebase and improve user load times
@@ -71,5 +71,5 @@
 - #strong[Programming Languages:] Rust, Python, SQL (Postgres/sqlite), R, Nix, HTML/CSS, basic React, bash
 - #strong[Technologies:] Python data stack (PyTorch, Polars, Pydantic, Sentence Transformers), Rust ecosystem (sqlx, tokio), Grafana, GitLab CI/CD
 - #strong[Linux & Containers:] GNU tools, systemd, Docker/Podman, network namespaces, cgroups, nftables, iproute2, gdb, perf 
-- #strong[AWS Stack:] ECS clusters; serverless architectures with Lambda, EventBridge, and SQS; IAM and AWS Organizations, Terraform/OpenTofu, 
-- #strong[Workflows:] Collaborated in an Agile workflow tracking epics and story points with GitLab and Trello (Kanban)
+- #strong[AWS Stack:] ECS clusters; serverless architectures with Lambda, EventBridge, and SQS; S3 ELT; IAM and AWS Organizations, Terraform/OpenTofu
+- #strong[Workflows:] Collaborated in an Agile workflow tracking epics and story points with GitLab and Trello (Kanban) and DORA metrics
