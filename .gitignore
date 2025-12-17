@@ -1,3 +1,5 @@
 public/
 static/resume/*.pdf
 static/resume/*.html
+resume/*.pdf
+resume/*.html

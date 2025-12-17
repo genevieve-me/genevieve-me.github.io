@@ -34,18 +34,18 @@ title="About me"
     </div>
 </div>
 
-I'm a data engineer working remotely for [The Syllabus](https://www.thesyllabus.com/)
+I'm an engineer working on ML and AI solutions. I currently work remotely for [The Syllabus](https://www.thesyllabus.com/) with focus on backend systems, data pipelines, and machine learning operations.
 
-I studied statistics, data science and economics at Washington University.
-I'm passionate about working on data analysis with interdisciplinary teams and identifying practical insights.
-My areas of focus are computational statistics (especially Bayesian methods and non-parametric modelling), and I also have a background in financial analysis and biostatistics.
+I'm passionate about building at the intersection of data infrastructure and product design.
+I work on high-performance solutions that create lasting organizational impact.
+My work bridges data engineering, DevOps, and full-stack development.
+I work in a tight-knit, cross-functional team where I architect full-stack data solutions and AI applications using Rust and Python, turning complex data challenges into automated, cost-effective pipelines that drive reliability and meaningful insights.
 
-I have the most experience with the R ecosystem and using the GNU toolkit to prepare data, but I have also worked with Tensorflow and am always willing to learn new tools.
-I've learned techniques for working with time series data for econometrics and high-throughput data for genomics.
-When it comes to software engineering, I also have a background in programming in Python and Rust, as well as
-software deployment with strong knowledge of fundamentals of Linux, containers, Terraform, and AWS.
+Before that, I also studied statistics, data science and economics at Washington University.
+I contributed technical writing to interdisciplinary social science research during my time at university, now featured in a published manuscript.
+My cross-disciplinary background shapes how I approach engineering: I prioritize clarity, context, and documentation. I view system observability and documentation as essential for translating complex stakeholder requirements and user needs into resilient products.
 
-When I have time, I want to keep learning Scheme and playing with Guix System.
+I have a strong background in programming in Python and Rust, as well as software deployment with strong knowledge of fundamentals of Linux, containers, Terraform, and AWS.
 I'm also interested in how data, policy, and climate resilience intersect in cities.
 
 [My resume is available here.](@/resume.md)
