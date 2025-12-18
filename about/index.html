@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Genevieve Mendoza</title>
+        <link rel="stylesheet" href="/main.css" />
+        
+    </head>
+
+    <body>
+        <!-- is this bad? "Practically speaking this means you have to choose between using includes or extends to organise your site, without mixing them."  -->
+        <header id="header_bar">
+    <div class="header-div">
+        <!-- checkbox stores the state of the dropdown navbar for mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <div class="header-brand">
+            <a title="Go to home page" href="/" class="text-2xl font-semibold"
+                >home</a
+            >
+            <!-- hamburger button used for the navbar checkbox hack -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <nav class="nav-container">
+            <menu class="nav-wrapper">
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/blog/"
+                        >blog</a
+                    >
+                </li>
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/about/"
+                        >about</a
+                    >
+                </li>
+            </menu>
+        </nav>
+    </div>
+</header>
+
+        <section class="section">
+            <div class="blog-container"> <div class="about-header">
+    <img
+        src="/Under_construction_graphic.gif"
+        alt=""
+        class="about-header__image"
+        loading="lazy"
+    />
+    <div class="about-header__content">
+        <h1 class="about-header__title">Genevieve Mendoza</h1>
+        <p class="about-header__subtitle">Software Engineer</p>
+        <p class="about-header__contact">
+            <a href="mailto:me@genevievemendoza.com">me@genevievemendoza.com</a>
+        </p>
+        <p class="about-header__links">
+            <a href="https://github.com/genevieve-me" class="about-header__link about-header__link--github">
+                <span class="about-header__icon about-header__icon--github" aria-hidden="true"></span>
+                GitHub
+            </a>
+            <span class="about-header__links-separator" aria-hidden="true">/</span>
+            <a href="https://www.linkedin.com/in/genevievemendoza" class="about-header__link about-header__link--linkedin">
+                <span class="about-header__icon about-header__icon--linkedin" aria-hidden="true"></span>
+                LinkedIn
+            </a>
+            <span class="about-header__links-separator" aria-hidden="true">/</span>
+            <a rel="me" href="https://hachyderm.io/@genevieve" class="about-header__link about-header__link--mastodon">
+                <span class="about-header__icon about-header__icon--mastodon" aria-hidden="true"></span>
+                Mastodon
+            </a>
+        </p>
+    </div>
+</div>
+<p>I'm an engineer based in New York. At <a href="https://www.thesyllabus.com/">The Syllabus</a>, I build high-performance backend systems and data infrastructure for large-scale text ML pipelines and AI-powered product features. My day-to-day spans Rust and Python services, AWS, and model training, working end-to-end from data ingestion to product reliability.</p>
+<p>I care a lot about observability, reproducibility, and documentation. My background in statistics and economics shapes how I approach engineering: I like being explicit about assumptions, measuring impact, and making systems understandable to the people who operate them. My favorite part of my work is turning complex data challenges into automated, cost-effective pipelines that drive reliability and meaningful insights.</p>
+<p>I have experience collaborating on tight-knit, cross-functional teams. Besides my product work, I have strong fundamental knowledge of Linux, containers, Terraform, and AWS, and believe in the value of practicing DevOps by owning responsibility for your software's production lifecycle.</p>
+<p>I'm open to data and engineering roles, including ML/AI, data platform, and backend infrastructure work. Email me at <a href="mailto:jobs@genevievemendoza.com">jobs@genevievemendoza.com</a>.</p>
+<p><a href="https://www.genevievemendoza.com/resume/">My resume is available here.</a></p>
+ </div>
+        </section>
+        <!-- limit on only the homepage. is there a better way? -->
+        
+    </body>
+</html>

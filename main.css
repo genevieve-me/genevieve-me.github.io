@@ -1,0 +1,414 @@
+@import url("_syntax-theme-dark.css") (prefers-color-scheme: dark);
+@import url("_syntax-theme-light.css") (prefers-color-scheme: light);
+@import url("syntax.css");
+
+@font-face {
+    font-family: "Source Sans 3 VF";
+    src:
+        url("/fonts/SourceSans3-VariableFont_wght.woff2") format("woff2-variations"),
+        url("/fonts/SourceSans3-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --accent-color: purple;
+    --link-color: #3176c4;
+    --link-color-visited: #6a3699; /* or deepskyblue ? */
+    --link-color-header: #0070f3;
+    /* slightly brighter for external links */
+    --link-color-external: #3a8fea;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #282c34;
+        --text-color: #fff;
+        --accent-color: pink;
+        --link-color: #67c6ee;
+        --link-color-visited: #f45b68;
+        --link-color-header: #f8f8f2;
+        /* lighter cyan variant for external links */
+        --link-color-external: #8ee6ff;
+    }
+}
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Source Sans 3 VF", "Source Sans 3", Arial, sans-serif;
+    font-optical-sizing: auto;
+    font-size: clamp(1rem, 2vmin, 1.5rem);
+    /* added back to make the footer able to stick to the bottom */
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+a:link {
+    color: var(--link-color);
+}
+a:visited {
+    color: var(--link-color-visited);
+}
+/* cute: https://lobste.rs/s/kfg4uc/wasted_potential_css_attribute */
+a[href^="https://"]
+{
+    color: var(--link-color-external);
+}
+
+#header_bar {
+    width: 100%;
+    padding: 0.75rem;
+    border-bottom: 5px solid var(--accent-color);
+    top: 0px;
+    position: sticky;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--background-color);
+    z-index: 10;
+}
+.header-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: min(100%, 56rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+    box-sizing: border-box;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    gap: 0.75rem;
+}
+header ol,
+header ul,
+header menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#header_bar a {
+    color: var(--link-color-header);
+}
+.blog-container {
+    display-header: flex; /* we're using flex because the individual elements should have some control over their layout */
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1.5rem;
+}
+@media (max-width: 768px) {
+    .blog-container {
+        max-width: 100%;
+        padding: 2rem 1.25rem;
+    }
+}
+
+/* TODO: can this be .blog-container :is(p, ul, ol) {} */
+.blog-container p {
+    max-width: 80ch;
+}
+.blog-container ul {
+    max-width: 80ch;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.font-medium {
+    font-weight: 500;
+}
+
+/* Hamburger menu toggle */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: relative;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-toggle-label span {
+    display: block;
+    height: 3px;
+    width: 24px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+/* turns the hamburger into a cross when checked */
+#nav-toggle:checked ~ div .nav-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+#nav-toggle:checked ~ div .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+}
+#nav-toggle:checked ~ div .nav-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-container {
+    width: 100%;
+    position: relative;
+    flex: 1 1 100%;
+}
+
+.nav-wrapper {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid var(--accent-color);
+    background-color: var(--background-color);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-toggle:checked ~ .nav-container .nav-wrapper {
+    display: flex;
+}
+
+.nav-wrapper li {
+    margin: 0.5rem 0;
+    padding-left: 2.5rem;
+}
+@media (min-width: 1024px) {
+    .header-div {
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+    }
+    .header-brand {
+        flex: 0 0 auto;
+    }
+    .nav-container {
+        width: auto;
+        flex: 0 0 auto;
+    }
+    .nav-wrapper {
+        display: flex;
+        position: static;
+        background-color: transparent;
+        border-bottom: none;
+        flex-direction: row;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .nav-wrapper li {
+        margin: 0;
+        padding-left: 0;
+    }
+}
+
+.primary-link {
+    text-align: center;
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+    text-decoration-line: none;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.primary-link:hover {
+    opacity: 0.8;
+}
+
+.primary-link:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+/* Linkita */
+
+/* not used */
+.header-icons {
+    --icon-home: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>');
+    --icon-search: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+    --icon-translations: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>');
+    --icon-theme-light: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23" ></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>');
+    --icon-theme-dark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+}
+
+@media (min-width: 1024px) {
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .primary-link {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+footer {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem 1.5rem 2rem;
+    max-width: 56rem;
+}
+
+.footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-badges img {
+    image-rendering: pixelated;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-header__image {
+    flex: 0 0 10rem;
+    width: 14rem;
+    height: 10rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.about-header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.about-header__title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.about-header__subtitle {
+    margin: 0;
+    font-weight: 500;
+}
+
+.about-header__contact {
+    margin: 0.5rem 0 0;
+}
+
+.about-header__links {
+    margin: 0.25rem 0 0;
+}
+
+.about-header__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.about-header__links-separator {
+    margin: 0 0.4rem;
+}
+
+.about-header__icon {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.about-header__icon--github {
+    background-image: url("/icons/github-mark.svg");
+}
+
+.about-header__icon--linkedin {
+    background-image: url("/icons/linkedin-black.svg");
+}
+
+.about-header__icon--mastodon {
+    background-image: url("/icons/fediverse-black.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+    .about-header__icon--github {
+        background-image: url("/icons/github-mark-white.svg");
+    }
+    .about-header__icon--linkedin {
+        background-image: url("/icons/linkedin-white.svg");
+    }
+    .about-header__icon--mastodon {
+        background-image: url("/icons/fediverse-white.svg");
+    }
+}
+
+@media (max-width: 640px) {
+    .about-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Footnotes */
+.footnote-definition:first-of-type {
+    border-top: 1px solid var(--text-color);
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.footnote-definition {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
+.footnote-definition-label {
+    font-size: inherit;
+    vertical-align: baseline;
+}
+
+.footnote-definition p {
+    margin: 0;
+}
