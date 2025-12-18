@@ -1,5 +1,5 @@
 +++
-title = "Genevieve's Blog"
+title = "Genevieve Mendoza - Home"
 +++
 
 I'm an engineer based in New York.

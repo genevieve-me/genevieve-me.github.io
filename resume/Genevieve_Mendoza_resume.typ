@@ -23,11 +23,11 @@
   institution: "Washington University in St. Louis",
   location: "St. Louis, MO",
   dates: dates-helper(start-date: "Aug 2019", end-date: "May 2023"),
-  degree: "B.A., Majors in Statistics & Economics",
+  degree: "B.A., Majors in Statistics & Economics (High Honors)",
   gpa: "3.93 / 4.0",
 )
-- High Honors and Dean's List; leadership roles with ArchHacks/HackWashU, Association for Women in Math, and Fossil Free
-- Teaching assistant for Data Structures & Algorithms and Analysis courses
+- Leadership roles with ArchHacks/HackWashU, Association for Women in Math, and Fossil Free
+- Teaching assistant for Data Structures & Algorithms and Mathematical Analysis; Dean's List
 
 == Work Experience
 
@@ -40,8 +40,8 @@
 - Trained BERT-based language models for document understanding and implemented full-stack RAG pipeline for new user recommendation engine
 - Shipped a high-throughput data processing service in Rust that processes 300K+ weekly signals, optimizing memory usage and concurrency handling to reduce latency
 - Improved core API response speeds by 90x through SQL query tuning and trimmed over 30\% of yearly cloud spend by eliminating cloud inefficiencies
-- Engineered CI pipelines for all projects from scratch, enabling automated continuous deployment and reducing developer toil to nearly zero
 - Architected new event-driven data streaming system on AWS and migrated all services to containerized deployments managed entirely with IaC
+- Engineered new CI pipelines from scratch, increasing deploy frequency by >10x and reducing manual developer toil
 - Brought adoption of full-stack observability with OpenTelemetry from 0% to 95%, uncovering bugs and cutting median time to restore service by over half
 - Proactively eliminated security risks by identifying and mitigating leaked credentials with secret scanning and implementing role-based access controls
 - Improved developer experience by documenting legacy cronjobs and consolidating 40% of unmaintained lines of code into the primary data processing service
