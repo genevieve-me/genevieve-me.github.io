@@ -37,8 +37,9 @@
   company: "The Syllabus",
   dates: dates-helper(start-date: "2023", end-date: "Present"),
 )
-- Trained BERT-based language models for document understanding and implemented full-stack RAG pipeline for new user recommendation engine
-- Shipped a high-throughput data processing service in Rust that processes 300K+ weekly signals, optimizing memory usage and concurrency handling to reduce latency
+- Partnered with external clients to translate business needs into a full-stack React application for exploring and validating data insights
+- Built data pipeline for recommendation and RAG features using fine-tuned BERT language models and document understanding to extract structured data
+- Shipped a high-throughput ML service in Rust that processes 300K+ weekly signals, optimizing memory usage and concurrency handling to reduce latency
 - Improved core API response speeds by 90x through SQL query tuning and trimmed over 30\% of yearly cloud spend by eliminating cloud inefficiencies
 - Architected new event-driven data streaming system on AWS and migrated all services to containerized deployments managed entirely with IaC
 - Engineered new CI pipelines from scratch, increasing deploy frequency by >10x and reducing manual developer toil
@@ -66,10 +67,11 @@
 
 == Skills
 
-- #strong[Languages:] English (fluent), French (proficient), Spanish (conversant)
+- #strong[Programming Languages:] Rust, Python, SQL (Postgres/sqlite), R, Nix, HTML/CSS, React, bash
+- #strong[Technologies:] Python data stack (Polars, Pydantic), Rust ecosystem (sqlx, tokio), Grafana, GitLab CI/CD
+- #strong[Machine Learning:] PyTorch, Sentence Transformers, LLM Fine Tuning with Transformer Reinforcement Learning (TRL)
 - #strong[Statistics & ML:] SVMs and MLPs, transformers (BERT), embeddings, neural networks, naive Bayes, NLP
-- #strong[Programming Languages:] Rust, Python, SQL (Postgres/sqlite), R, Nix, HTML/CSS, basic React, bash
-- #strong[Technologies:] Python data stack (PyTorch, Polars, Pydantic, Sentence Transformers), Rust ecosystem (sqlx, tokio), Grafana, GitLab CI/CD
 - #strong[Linux & Containers:] GNU tools, systemd, Docker/Podman, network namespaces, cgroups, nftables, iproute2, gdb, perf 
 - #strong[AWS Stack:] ECS clusters; serverless architectures with Lambda, EventBridge, and SQS; S3 ELT; IAM and AWS Organizations, Terraform/OpenTofu
 - #strong[Workflows:] Collaborated in an Agile workflow tracking epics and story points with GitLab and Trello (Kanban) and DORA metrics
+- #strong[Languages:] English (fluent), French (proficient), Spanish (conversant)
