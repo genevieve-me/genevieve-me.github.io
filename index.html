@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Genevieve Mendoza</title>
+        <link rel="stylesheet" href="/main.css" />
+        
+        <link rel="me" href="https://hachyderm.io/@genevieve" />
+
+    </head>
+
+    <body>
+        <!-- is this bad? "Practically speaking this means you have to choose between using includes or extends to organise your site, without mixing them."  -->
+        <header id="header_bar">
+    <div class="header-div">
+        <!-- checkbox stores the state of the dropdown navbar for mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <div class="header-brand">
+            <a title="Go to home page" href="/" class="text-2xl font-semibold"
+                >home</a
+            >
+            <!-- hamburger button used for the navbar checkbox hack -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <nav class="nav-container">
+            <menu class="nav-wrapper">
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/blog/"
+                        >blog</a
+                    >
+                </li>
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/about/"
+                        >about</a
+                    >
+                </li>
+            </menu>
+        </nav>
+    </div>
+</header>
+
+        <section class="section">
+            <div class="blog-container">
+<h1 class="title">Genevieve Mendoza - Home</h1>
+
+<p>I'm an engineer based in New York.
+I build and maintain data infrastructure and services that turn large, messy text corpora into curated, human-scale insights.
+I care a lot about observability, reproducibility, and making tools that teammates actually enjoy using.</p>
+
+
+For more info about me, please see my <a href="https://www.genevievemendoza.com/about/">about page.</a>
+
+<p>Please feel free to <a href="https://www.genevievemendoza.com/resume/">take a look at my resume</a>.</p>
+
+</div>
+        </section>
+        <!-- limit on only the homepage. is there a better way? -->
+          <footer>
+    <div class="footer-inner">
+        <p>
+            © 2026 Genevieve Mendoza ·
+              Handmade with Zola and a soft spot for the indie web.
+        </p>
+        <div class="footer-badges" aria-hidden="true">
+            <a href="https://cyber.dabamos.de/88x31/">
+            <img
+                src="8831/88x31.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            </a>
+            <a href="https://jointhefediverse.net/join">
+            <img
+                src="8831/neo-fedi.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            </a>
+            <img
+                src="8831/nocookie.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            <!-- <img src="/8831/RetroWorkConstructAnim.gif" alt="" loading="lazy" /> -->
+            <!-- <img src="/8831/AtlantisCONSTRUCTION.gif" alt="" loading="lazy" /> -->
+            <a href="https://eylenburg.github.io/browser_engines.htm">
+            <img src="/8831/chrmevil.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+            </a>
+            <img
+                src="8831/construction.gif"
+                alt=""
+                width="88"
+                height="31"
+                loading="lazy"
+            />
+        </div>
+    </div>
+</footer>
+  
+    </body>
+</html>
