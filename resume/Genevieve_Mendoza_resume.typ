@@ -37,8 +37,8 @@
   company: "The Syllabus",
   dates: dates-helper(start-date: "2023", end-date: "Present"),
 )
-- Partnered with external clients to translate business needs into a full-stack React application for exploring and validating data insights
-- Built data pipeline for recommendation and RAG features using fine-tuned BERT language models and document understanding to extract structured data
+- Partnered with clients to translate their needs into a full-stack React application for exploring & validating data insights
+- Built data pipeline for recommendation and RAG features using fine-tuned BERT language models and document understanding for user recommendations
 - Shipped a high-throughput ML service in Rust that processes 300K+ weekly signals, optimizing memory usage and concurrency handling to reduce latency
 - Improved core API response speeds by 90x through SQL query tuning and trimmed over 30\% of yearly cloud spend by eliminating cloud inefficiencies
 - Architected new event-driven data streaming system on AWS and migrated all services to containerized deployments managed entirely with IaC
