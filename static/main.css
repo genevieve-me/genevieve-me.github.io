@@ -390,25 +390,23 @@ footer {
     }
 }
 
-/* Footnotes */
-.footnote-definition:first-of-type {
+/* Footnotes (bottom_footnotes mode) */
+footer.footnotes {
     border-top: 1px solid var(--text-color);
     margin-top: 2rem;
     padding-top: 1rem;
 }
 
-.footnote-definition {
-    display: flex;
-    gap: 0.5rem;
+.footnotes-list {
     font-size: 0.9em;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.footnotes-list li {
     margin-bottom: 0.5rem;
 }
 
-.footnote-definition-label {
-    font-size: inherit;
-    vertical-align: baseline;
-}
-
-.footnote-definition p {
+.footnotes-list p {
     margin: 0;
 }

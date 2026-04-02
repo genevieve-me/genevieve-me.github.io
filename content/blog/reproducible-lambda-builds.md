@@ -64,10 +64,10 @@ Like I mentioned before, I preferred to remove it in this case, but if you would
 [^rust]: I've had success writing slightly more complex lambdas in Rust, and Rust in AWS Lambda [is now GA](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-lambda-rust/) with the official stabilization of components like the Rust Lambda Runtime. (I've found it was already stable for a while, though!)
 
 [^ci-zip]: If you're curious, our CI script looks like this:
-```sh
-find . -exec touch -d 1970-01-01T00:00:00Z {} +
-find . -type f -print | sort | TZ=UTC zip -oX -@ ${LAMBDA_NAME}-payload.zip
-```
+    ```sh
+    find . -exec touch -d 1970-01-01T00:00:00Z {} +
+    find . -type f -print | sort | TZ=UTC zip -oX -@ ${LAMBDA_NAME}-payload.zip
+    ```
 
 [^reproducible]: You can see the (impressive) reproducibility rates of packages in [NixOS/`nixpkgs`](https://reproducible.nixos.org/) or [Arch Linux](https://reproducible.archlinux.org/) on their websites. Besides enhancing trust, build reproducibility could be especially powerful in concert with future work like a content-addressed Nix store.
 
