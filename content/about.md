@@ -34,7 +34,7 @@ title="About me"
     </div>
 </div>
 
-I'm an engineer based in New York. At [The Syllabus](https://www.thesyllabus.com/), I build high-performance backend systems and data infrastructure for large-scale text ML pipelines and AI-powered product features. My day-to-day spans Rust and Python services, AWS, and model training, working end-to-end from data ingestion to product reliability.
+I'm an engineer based in New York. At [The Syllabus](https://www.the-syllabus.com/), I build high-performance backend systems and data infrastructure for large-scale text ML pipelines and AI-powered product features. My day-to-day spans Rust and Python services, AWS, and model training, working end-to-end from data ingestion to product reliability.
 
 I care a lot about observability, reproducibility, and documentation. My background in statistics and economics shapes how I approach engineering: I like being explicit about assumptions, measuring impact, and making systems understandable to the people who operate them. My favorite part of my work is turning complex data challenges into automated, cost-effective pipelines that drive reliability and meaningful insights.
 
