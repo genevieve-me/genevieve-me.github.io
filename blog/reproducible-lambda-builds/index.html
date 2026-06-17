@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Genevieve Mendoza</title>
+        <link rel="stylesheet" href="/main.css" />
+        
+        <meta name="fediverse:creator" content="@genevieve@hachyderm.io" />
+
+    </head>
+
+    <body>
+        <!-- is this bad? "Practically speaking this means you have to choose between using includes or extends to organise your site, without mixing them."  -->
+        <header id="header_bar">
+    <div class="header-div">
+        <!-- checkbox stores the state of the dropdown navbar for mobile -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <div class="header-brand">
+            <a title="Go to home page" href="/" class="text-2xl font-semibold"
+                >home</a
+            >
+            <!-- hamburger button used for the navbar checkbox hack -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <nav class="nav-container">
+            <menu class="nav-wrapper">
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/blog/"
+                        >blog</a
+                    >
+                </li>
+                <li>
+                    <a
+                        class="primary-link"
+                        href="https://www.genevievemendoza.com/about/"
+                        >about</a
+                    >
+                </li>
+            </menu>
+        </nav>
+    </div>
+</header>
+
+        <section class="section">
+            <div class="blog-container">
+<h1 class="title">Achieving Determinism for Python Lambda Artifacts</h1>
+<p class="subtitle"><strong>2025-12-06</strong></p>
+<p>I spent too long debugging why my Lambda builds in Python kept producing different zip hashes despite no code changes.
+It turns out that even after eliminating other sources of non-determinism, reproducible builds of Python code can be tricky due to bytecode compilation.</p>
+<h2 id="the-context">The context</h2>
+<p>While not all of our lambda functions are in Python, those that are tend to be small and simple.<sup class="footnote-reference"><a href="#rust">1</a></sup>
+Bundling them for deployment as zipfiles is simpler and faster in CI than setting up container builds for all of them, and integrates well with our IAC setup using the AWS Terraform provider.</p>
+<p>The non-determinism of zip archives is well known by people working on build reproducibility,
+and there are <a href="https://reproducible-builds.org/docs/archives/#zip-files">well-trod workaround paths</a><sup class="footnote-reference"><a href="#ci-zip">2</a></sup>.
+We're ultimately zipping up a bunch of <code>.py</code> files, so I don't mean to imply this is the same as that work (typically done in the context of software distributions), but there's a lot to learn from that world when it comes to software delivery.<sup class="footnote-reference"><a href="#reproducible">3</a></sup></p>
+<h2 id="the-problem">The problem</h2>
+<p>After making the zip archival deterministic, I was surprised to see that the <code>tofu plan</code> jobs still planned to redeploy all lambdas every run.</p>
+<p>I tracked down which files in the artifacts didn't match (just a matter of <code>diff</code>) and realized the issue was in the bytecode (<code>__pycache__/*.pyc</code> files). You may wonder why that was included at all, especially when AWS <a href="https://docs.aws.amazon.com/lambda/latest/dg/python-package.html#python-package-pycache">recommends you don't include <code>__pycache__</code> directories</a>.</p>
+<p>Stepping back a moment, these lambdas are in the same repository as some other Python containers.
+I've fully embraced <code>uv</code> for Python now, and it's used throughout the repo: including for lambdas, as several have one or two dependencies.
+<code>uv</code> can pre-compile your and your dependencies' source files into bytecode,
+and they recommend doing so in their excellent <a href="https://docs.astral.sh/uv/guides/integration/docker/">documentation on containerization</a>.</p>
+<p>It turns out that I set the <code>UV_COMPILE_BYTECODE=1</code> flag for all CI jobs in the entire repository when it was first created.
+I did notice this when lambdas were first added to the repo some time later, but didn't think too much of it.
+My first thought was that the flag could speed up cold starts, since Python wouldn't need to compile on first import.
+We already make sure the build environment/Python version matches the Lambda execution target<sup class="footnote-reference"><a href="#caution">4</a></sup>, so it's fine, right?</p>
+<p>I still think this is a reasonable suggestion for container builds, but there are two issues which cause pre-compiled Python bytecode to be non-deterministic.
+First, timestamps are embedded in bytecode files. By default, <code>.pyc</code> files include the source file's modification timestamp. Different build environments or times means different hashes. You can work around this by setting <code>SOURCE_DATE_EPOCH=0</code>, a standardized environment variable that tells build tools (including the bytecode compiler) to use a fixed timestamp instead.</p>
+<p>Second, CPython's marshal module can have non-deterministic serialization: this behavior has been <a href="https://bugs.python.org/issue34033">known for some time</a>.
+When Python serializes bytecode, the output depends on interpreter state and compilation order.
+If files are processed in varying order (as occurs with <code>uv</code>'s parallel compilation workers<sup class="footnote-reference"><a href="#uvsource">5</a></sup> or standard <code>python -m compileall -j4</code>) the output differs.</p>
+<p>The root cause is how CPython handles reference flags (<code>FLAG_REF</code>) during serialization.
+The issue tracking this is filed as a <a href="https://github.com/python/cpython/issues/129724">feature request</a> looking for a design that doesn't regress performance of the bytecode compiler.</p>
+<h2 id="the-fix">The fix</h2>
+<p>The simplest solution is to not ship bytecode at all:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">UV_COMPILE_BYTECODE</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">0</span>
+</span></code></pre>
+<p>In fact, that's a bit misleading; you don't have to set this environment variable, you just have to do nothing to get the default behavior!<sup class="footnote-reference"><a href="#hindsight">6</a></sup> When skipping bytecode compilation entirely, the lambda zips hash consistently.</p>
+<p>Yes, this means slightly slower cold starts since Python has to compile bytecode on first import. There is still an interesting trade-off, because the Lambda execution environment has to unzip your code, and that part will be faster on a smaller archive without bytecode included. Either way, if you care about these milliseconds, you probably have bigger concerns.</p>
+<h2 id="why-bother">Why bother?</h2>
+<p>Reproducible builds let you trust your CI cache invalidation and avoid noise in your deployment plans. It's nice to know that no code changes also means no changes to your deployment artifact. In this case, the right answer was just turning a feature off.</p>
+<p>P.S. While writing this post, I actually discovered the tool <a href="https://github.com/keszybz/add-determinism"><code>add-det</code></a>.
+In addition to fixing common annoyances like zipfile timestamps, it has support for normalizing <code>.pyc</code> bytecode.
+Like I mentioned before, I preferred to remove it in this case, but if you would rather keep your bytecode in your build artifacts, give it a try and let me know how it works for you!</p>
+<div class="footnote-definition" id="rust"><sup class="footnote-definition-label">1</sup>
+<p>I've had success writing slightly more complex lambdas in Rust, and Rust in AWS Lambda <a href="https://aws.amazon.com/about-aws/whats-new/2025/11/aws-lambda-rust/">is now GA</a> with the official stabilization of components like the Rust Lambda Runtime. (I've found it was already stable for a while, though!)</p>
+</div>
+<div class="footnote-definition" id="ci-zip"><sup class="footnote-definition-label">2</sup>
+<p>If you're curious, our CI script looks like this:</p>
+</div>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"> .<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>exec</span> touch<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> 1970-01-01T00:00:00Z <span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span><span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span> +</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"> .<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>type</span> f<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sort</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-variable z-other z-readwrite z-assignment z-shell">TZ</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">UTC</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">zip</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>oX</span> -@ <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">LAMBDA_NAME</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span>-payload.zip</span>
+</span></code></pre>
+<div class="footnote-definition" id="reproducible"><sup class="footnote-definition-label">3</sup>
+<p>You can see the (impressive) reproducibility rates of packages in <a href="https://reproducible.nixos.org/">NixOS/<code>nixpkgs</code></a> or <a href="https://reproducible.archlinux.org/">Arch Linux</a> on their websites. Besides enhancing trust, build reproducibility could be especially powerful in concert with future work like a content-addressed Nix store.</p>
+</div>
+<div class="footnote-definition" id="caution"><sup class="footnote-definition-label">4</sup>
+<p>The only reason given for AWS's suggestion to exclude bytecode is avoiding issues with a "build machine with a different architecture or operating system." As you'll see, I ultimately did disable bytecode pre-compilation, but if you are paying attention to such things (as you should), I think you're probably fine to ignore this generic bit of advice.</p>
+</div>
+<div class="footnote-definition" id="hindsight"><sup class="footnote-definition-label">6</sup>
+<p>It may have been wiser for past me to scope environment variables like this <code>uv</code>-specific flag to only the jobs that explicitly wanted it, even if that meant a tiny bit more repetition. It can be hard to resist the allure of simplicity, though!</p>
+</div>
+<div class="footnote-definition" id="uvsource"><sup class="footnote-definition-label">5</sup>
+<p>See uv's <a href="https://github.com/astral-sh/uv/blob/main/crates/uv-installer/src/compile.rs">compile.rs</a>, which spawns multiple worker processes each running a Python interpreter that compiles files via <a href="https://github.com/astral-sh/uv/blob/main/crates/uv-installer/src/pip_compileall.py">pip_compileall.py</a>.</p>
+</div>
+ </div>
+        </section>
+        <!-- limit on only the homepage. is there a better way? -->
+        
+    </body>
+</html>
